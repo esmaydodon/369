@@ -91,7 +91,7 @@ $("#fecha_de_envio_documento_bd").datepicker({
                 <li><a href='equipos.php'>REGISTRAR MATERIAL</a></li>
                 <li><a href='listar_materiales.php'>LISTAR METERIALES</a></li>
                 <li><a href='control_almacen.php'>CONTROL DE ALMACEN</a></li>
-                <li><a href=''>LISTAR MOVIMIENTOS</a></li>
+                <li><a href='listar_movimientos.php'>LISTAR MOVIMIENTOS</a></li>
           <li><a  href='destruir.php' class='current'>SALIR</a></li>
           
     </ul>

@@ -124,28 +124,42 @@ if(isset($_GET['pag'])){
 } # para paginar
 
 ###############################################################################3 
-       $consulta = dime("SELECT * FROM equipos_bd ORDER BY idequipos_bd desc LIMIT $RegistrosAEmpezar, $RegistrosAMostrar");
+       $consulta = dime("SELECT * FROM  movimiento_bd  ORDER BY idmovimiento_bd desc LIMIT $RegistrosAEmpezar, $RegistrosAMostrar");
 echo "  <div class='section'>
         <table width='900px' border='1' class='tabla' id='Exportar_a_Excel'>
         <div class='' >	
          <tr class='encabezado' >
+            <td>idmovimiento_bd</td>
+            <td>cantidad_ingreso</td>
+            <td>cantidad_salida</td>
+            <td>empresa_transportes_bd</td>
+            <td>guia_trancito</td>
+            <td>rgn_bd</td>
+            <td>obra</td>
+            <td>autorizado_por_bd</td>
+            <td>solicitado_por_bd</td>
+            <td>antregado_a</td>
+            <td>progresiva</td>
             <td>idequipos_bd</td>
-            <td>equipos_codigo_bd</td>
-            <td>nombre_equipo_bd</td>
-            <td>equipos_unidadm_bd</td>
-            <td>salida_total_bd</td>
-            <td>ingreso_total_bd</td>
-            <td>stock_actual_equipo_bd</td>
+            <td>documento_salida_bd</td>
+            <td>fecha_movimiento_bd</td>
          </tr>";
 while($productos = mysql_fetch_array($consulta)){
 	$cadena = ereg_replace( "([     ]+)","%20",$productos['ruta_img1']);
-	echo "<tr><td>". $productos['idequipos_bd']."</td>
-            <td>". $productos['equipos_codigo_bd']."</td>
-                <td>".$productos['nombre_equipo_bd']."</td>
-                <td>".$productos['equipos_unidadm_bd']."</td>
-                <td>".$productos['salida_total_bd']."</td>
-                <td>".$productos['ingreso_total_bd']."</td>
-                <td>".$productos['stock_actual_equipo_bd'];
+	echo "<tr><td>". $productos['idmovimiento_bd']."</td>
+            <td>". $productos['cantidad_ingreso']."</td>
+                <td>".$productos['cantidad_salida']."</td>
+                <td>".$productos['empresa_transportes_bd']."</td>
+                <td>".$productos['guia_trancito']."</td>
+                <td>".$productos['rgn_bd']."</td>
+                <td>".$productos['obra']."</td>
+                <td>".$productos['autorizado_por_bd']."</td>
+                <td>".$productos['solicitado_por_bd']."</td>
+                <td>".$productos['antregado_a']."</td>
+                <td>".$productos['progresiva']."</td>
+                <td>".$productos['idequipos_bd']."</td>
+                <td>".$productos['documento_salida_bd']."</td>
+                <td>".$productos['fecha_movimiento_bd'];
   }
       #paginar	
 $NroRegistros=mysql_num_rows(mysql_query("SELECT * FROM equipos_bd"));
