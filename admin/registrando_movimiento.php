@@ -28,7 +28,7 @@ if ($movimiento_tipo==1) {
            $stock_actual_equipo_bd= $row['stock_actual_equipo_bd'];
         }
 	$NuevaCantidad =($cantidad_ingreso+$stock_actual_equipo_bd);
-         $actualizarStok="UPDATE equipos_bd SET stock_actual_equipo_bd = '$NuevaCantidad' WHERE idequipos_bd =".$idequipos_bd;
+         $actualizarStok="UPDATE equipos_bd SET stock_actual_equipo_bd = '$NuevaCantidad',ingreso_total_bd= '$NuevaCantidad' WHERE idequipos_bd =".$idequipos_bd;
 $result2 = dime($actualizarStok)or die(ovni("Oo.php"));
 	//echo $consulta; 
 }elseif ($movimiento_tipo==2) {
