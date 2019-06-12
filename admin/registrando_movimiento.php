@@ -22,7 +22,8 @@ if ($movimiento_tipo==1) {
 	$consulta = "INSERT INTO movimiento_bd (cantidad_ingreso, empresa_transportes_bd,guia_trancito,rgn_bd,obra,idequipos_bd,fecha_movimiento_bd) 
 	VALUES ('$cantidad_ingreso','$empresa_transportes_bd','$guia_trancito','$rgn_bd','$obra','$idequipos_bd','$fecha_movimiento_bd')";
 	//consultamos el stock actual del material por su id
-	$consulta_material_stock= dime("SELECT stock_actual_equipo_bd FROM equipos_bd  where 'idequipos_bd'=".$idequipos_bd);
+        $result = dime($consulta)or die(mysql_error());	
+	$consulta_material_stock= dime("SELECT stock_actual_equipo_bd FROM equipos_bd  where idequipos_bd=".$idequipos_bd);
         while ($row = mysql_fetch_array($consulta_material_stock)) {
            $stock_actual_equipo_bd= $row['stock_actual_equipo_bd'];
         }
@@ -30,7 +31,6 @@ if ($movimiento_tipo==1) {
          $actualizarStok="UPDATE equipos_bd SET stock_actual_equipo_bd = '$NuevaCantidad' WHERE idequipos_bd =".$idequipos_bd;
 $result2 = dime($actualizarStok)or die(ovni("Oo.php"));
 	//echo $consulta; 
-	$result = dime($consulta)or die(mysql_error());	
 }elseif ($movimiento_tipo==2) {
 $consulta = "INSERT INTO movimiento_bd (cantidad_salida, obra,autorizado_por_bd, solicitado_por_bd,antregado_a,progresiva,idequipos_bd,documento_salida_bd,fecha_movimiento_bd) 
     VALUES ('$cantidad_salida','$obra','$autorizado_por_bd','$solicitado_por_bd','$antregado_a','$progresiva','$idequipos_bd','$documento_salida_bd','$fecha_movimiento_bd')";
