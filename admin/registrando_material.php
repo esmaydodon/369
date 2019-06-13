@@ -7,8 +7,8 @@ $equipos_unidadm_bd=quitar($_POST[equipos_unidadm_bd]);
 
 ###################para  guardar en bd la consulta 
  
-$consulta = "INSERT INTO equipos_bd (equipos_codigo_bd, nombre_equipo_bd, equipos_unidadm_bd, ingreso_total_bd)   VALUES 
-('$equipos_codigo_bd','$nombre_equipo_bd','$equipos_unidadm_bd','$ingreso_total_bd')";
+$consulta = "INSERT INTO equipos_bd (equipos_codigo_bd, nombre_equipo_bd, equipos_unidadm_bd, ingreso_total_bd,stock_actual_equipo_bd)   VALUES 
+('$equipos_codigo_bd','$nombre_equipo_bd','$equipos_unidadm_bd','$ingreso_total_bd','$ingreso_total_bd')";
 //echo $consulta; 
 $result = dime($consulta)or die(mysql_error());	
  
